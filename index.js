@@ -49,7 +49,6 @@ Texture2D.prototype.bind = function (gl, location) {
 }
 
 Texture2D.prototype.init = function (shape, DataType) {
-  var gl = this.gl
   var size = 1
 
   size *= shape[0]

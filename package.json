@@ -1,0 +1,37 @@
+{
+  "name": "kindred-texture-2d",
+  "description": "Simple WebGL API wrapper for 2D textures",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "posttest": "standard",
+    "start": "budo demo.js:bundle.js",
+    "bundle": "browserify demo.js -o bundle.js",
+    "preversion": "npm t",
+    "test": "node test | tspec"
+  },
+  "dependencies": {
+    "image-loaded": "0.0.2",
+    "primitive-cube": "^2.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "budo": "^8.3.0",
+    "kindred-geometry": "^1.0.0",
+    "kindred-node": "^1.0.0",
+    "kindred-renderer": "^1.0.1",
+    "kindred-shader": "^1.0.1",
+    "kindred-turntable-camera": "^1.0.0",
+    "primitive-cube": "^2.0.0",
+    "standard": "^7.1.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0"
+  },
+  "keywords": [
+    "ecosystem:kindred"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kindredjs/kindred-texture-2d"
+  }
+}

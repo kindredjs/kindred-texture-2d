@@ -2,7 +2,7 @@ var loadImage = require('image-loaded')
 var GL_UNSIGNED_BYTE = 5121
 var GL_RGBA = 6048
 var GL_NEAREST = 9728
-var GL_REPEAT = 10497
+var GL_CLAMP_TO_EDGE = 33071
 var bogusData = new Uint8Array(4)
 
 module.exports = Texture2D
@@ -20,7 +20,7 @@ function Texture2D () {
   this.format = GL_RGBA
   this.minFilter = GL_NEAREST
   this.magFilter = GL_NEAREST
-  this.wrap = [GL_REPEAT, GL_REPEAT]
+  this.wrap = [GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE]
   this._loadedWith = null
 }
 
@@ -43,6 +43,7 @@ Texture2D.prototype.bind = function (gl, location) {
   if (this._loadedWith !== null) {
     this.uploadElement(this._loadedWith)
     this.setFilters(this.minFilter, this.magFilter)
+    this.setWrapping(this.wrap[0], this.wrap[1])
     this._loadedWith = null
   }
 }
@@ -58,7 +59,7 @@ Texture2D.prototype.init = function (shape, DataType) {
 
   this.uploadData(new DataType(size), shape)
   this.setFilters(this.minFilter, this.magFilter)
-  this.setWrapping(gl.REPEAT)
+  this.setWrapping(this.wrap[0], this.wrap[1])
 
   return this
 }

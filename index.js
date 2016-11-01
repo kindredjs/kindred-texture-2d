@@ -22,6 +22,7 @@ function Texture2D () {
   this.magFilter = GL_NEAREST
   this.wrap = [GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE]
   this._loadedWith = null
+  this.isLoaded = true
 }
 
 Texture2D.prototype.bind = function (gl, location) {
@@ -200,8 +201,10 @@ Texture2D.fromImage = function (img) {
 
   var texture = Texture2D()
 
+  texture.isLoaded = false
   loadImage(img, function (err) {
     if (err) throw err
+    texture.isLoaded = true
     texture._loadedWith = img
   })
 

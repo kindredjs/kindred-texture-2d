@@ -1,7 +1,7 @@
 {
   "name": "kindred-texture-2d",
   "description": "Simple WebGL API wrapper for 2D textures",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
     "posttest": "standard",

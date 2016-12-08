@@ -47,6 +47,8 @@ Texture2D.prototype.bind = function (gl, location) {
     this.setWrapping(this.wrap[0], this.wrap[1])
     this._loadedWith = null
   }
+
+  return location
 }
 
 Texture2D.prototype.init = function (shape, DataType) {
